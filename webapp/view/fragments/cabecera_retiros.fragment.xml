@@ -1,0 +1,80 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns:upload="sap.m.upload"
+    xmlns:l="sap.ui.layout">
+	<Dialog id="cabecera_retiros" title="{i18n>cabecera_retiros.fragment.title}" contentHeight="35em" contentWidth="62em">
+    <content>
+ 
+    <VBox id="_IDEGen_vboxRetiros" direction="Row" class="sapUiSmallMargin">
+
+        <HBox id="_IDEGen_hboxRetirosA" justifyContent="Start" direction="Column" width="20em" class="sapUiLargeMarginEnd sapUiLargeMarginBegin"> 
+          
+          <Label id="lblFechaRetiros" text="{i18n>cabecera_retiros.fragment.fechaLiq}" labelFor="DP1" required="true" class="sapUiLargeMarginEnd sapUiLargeMarginBegin"/>
+          <DatePicker
+            id="fechaCabeceraRetiros"  
+            placeholder="{i18n>cabecera_retiros.fragment.fechaLiq.placeHolder}"
+            change="handleDateChange"
+            class="sapUiLargeMarginEnd sapUiLargeMarginBegin"/>
+
+            <Label id="lblNroRetiros" text="{i18n>cabecera_retiros.fragment.nroLiq}" required="true" class="sapUiLargeMarginEnd sapUiLargeMarginBegin"/>
+            <!-- <Input type="Number" id="inputNroLiquidacionRetiros" class="sapUiLargeMarginEnd sapUiLargeMarginBegin" /> -->
+            <MaskInput id="inputNroLiquidacionRetiros" mask="9999-99999999" placeholderSymbol="_" width="20em" class="sapUiLargeMarginEnd sapUiLargeMarginBegin"/>
+       
+        </HBox>
+        
+        <HBox id="_IDEGen_hboxRetirosB" justifyContent="Start" direction="Column" width="20em" class="sapUiLargeMarginEnd sapUiLargeMarginBegin" >
+            
+            <Label id="lblTipoRetiros" text="{i18n>cabecera_retiros.fragment.tipoCambio}" required="true" class="sapUiLargeMarginEnd sapUiLargeMarginBegin" />
+            <Input type="Number" id="inputTipoCambioRetiros" class="sapUiLargeMarginEnd sapUiLargeMarginBegin"/>
+            
+            <Label id="lblComisionRetiros" text="{i18n>cabecera_retiros.fragment.comision}" required="true" class="sapUiLargeMarginEnd sapUiLargeMarginBegin"/>
+            <Input type="Number" id="inputTipoComisionRetiros" class="sapUiLargeMarginEnd sapUiLargeMarginBegin"/>
+
+ 	    </HBox>
+     
+     </VBox>
+
+
+    <VBox id="_IDEGen_hbox_filesRetiros" direction="Row">
+
+    <HBox id="_IDEGen_vboxLiquidacionesRetiros" alignContent="Center" justifyContent="Start" width="30em" direction="Column">
+        
+        <Title id="lblCargarLiquidacionesRetiros" text="{i18n>cabecera_negocios.fragment.CargarLiquidaciones}" class="sapUiSmallMarginBegin"/>
+
+        <upload:UploadSet
+            id="UploadSetLiquidacionesRetiros"
+            showIcons="true"
+            fileTypes="pdf,jpg,png,jpeg"
+            maxFileNameLength="50"
+            maxFileSize="50"
+            fileTypeMismatch=".onFileTypeError" class="sapUiSmallMarginBegin borderCustom"/> 
+
+      </HBox>
+
+      <HBox id="_IDEGen_vboxComprobantesRetiros"  alignContent="Center" justifyContent="Start" width="30em" direction="Column">
+
+      <Title id="titleComprobantesRetiros" text="{i18n>cabecera_negocios.fragment.CargarComprobantes}" class="sapUiSmallMarginBegin"/> 
+        
+            <upload:UploadSet
+            id="UploadSetComprobantesRetiros"
+            showIcons="true"
+            fileTypes="pdf,jpg,png,jpeg"
+            maxFileNameLength="50"
+            maxFileSize="50"
+            fileNameLengthExceeded=".onFileNameError"
+            fileSizeExceeded=".onFileSizeError"
+            fileTypeMismatch=".onFileTypeError" class="sapUiSmallMarginBegin borderCustom"/>
+      
+      </HBox>
+
+    </VBox>
+
+		</content>
+		<buttons>
+      <!-- <Button text="{i18n>cabecera_retiros.fragment.buttonCargarFacturas}" press="handleCargarFacturasRetiros"/>
+      <Button text="{i18n>cabecera_retiros.fragment.buttonCargarLiquidaciones}" press="handleCargarLiquidacionesRetiros"/> -->
+      <Button text="{i18n>cabecera_retiros.fragment.buttonGuardar}" press="handleGuardarRetiros"/>
+			<Button text="{i18n>cabecera_retiros.fragment.buttonCancelar}" press="handleCancelRetiros"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

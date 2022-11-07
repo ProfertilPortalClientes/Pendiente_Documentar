@@ -1,0 +1,134 @@
+{
+    "_version": "1.21.0",
+    "sap.app": {
+        "id": "profertil.pendienteDocumentar",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "crossNavigation": {
+            "inbounds": {
+                "intent1": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "penddocum",
+                    "action": "admin",
+                    "title": "Pendiente de Documentar",
+                    "icon": "sap-icon://my-sales-order"
+                }
+            }
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "sap/opu/odata/sap/ZSV_PENDIENTE_DOCUMENTAR_SRV/",
+                "type": "OData",
+                "settings": {
+                    "localUri": "localService/sap/opu/odata/sap/ZSV_PENDIENTE_DOCUMENTAR_SRV//metadata.xml"
+                }
+            }
+        },
+        "sourceTemplate": {
+            "id": "@sap/ux-app-migrator:freestyle",
+            "version": "1.7.1",
+            "toolsId": "56d75e70-6a6b-4e7f-9da8-58fe94cb85c1"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "rootView": {
+            "viewName": "profertil.pendienteDocumentar.view.MainView",
+            "type": "XML",
+            "async": true,
+            "id": "idAppControl"
+        },
+        "dependencies": {
+            "minUI5Version": "1.60.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "profertil.pendienteDocumentar.i18n.i18n"
+                }
+            },
+            "": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "preload": true
+                },
+                "dataSource": "mainService"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "profertil.pendienteDocumentar.view",
+                "controlId": "idAppControl",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [
+                {
+                    "name": "RouteMainView",
+                    "pattern": "RouteMainView",
+                    "target": [
+                        "TargetMainView"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetMainView": {
+                    "viewType": "XML",
+                    "viewLevel": 1,
+                    "viewId": "idAppControl",
+                    "viewName": "MainView"
+                }
+            }
+        }
+    },
+    "sap.cloud": {
+        "service": "pendienteDocumentar",
+        "public": true
+    }
+}

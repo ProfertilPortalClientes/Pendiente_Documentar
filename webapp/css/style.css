@@ -1,0 +1,17 @@
+/* Enter your custom styles here */
+
+.customStyle{
+  background: #97cbff !important;
+}
+.customStyleDefault{
+background: #f7f7f7 !important;
+}
+.borderCustom {
+  border: 1px solid #000;
+}
+.li[id*="__item26-progressBox"] {
+  visible: "false" !important;
+}
+.edit[id="__item26-editButton"]{
+  visible: "false" !important;
+}

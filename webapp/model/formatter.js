@@ -1,0 +1,1 @@
+sap.ui.define([],function(){"use strict";return{formatDate:function(t){var r=t.substr(0,4);var n=t.substr(-4,2);var e=t.substr(-2,2);var u=e+"/"+n+"/"+r;return u},getStatusQty:function(t){if(t>0){return"Information"}else{return"None"}},getStatusText:function(t){if(t>0){return"Information"}else{return"None"}}}});

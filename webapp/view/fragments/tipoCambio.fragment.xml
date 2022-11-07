@@ -1,0 +1,78 @@
+<core:FragmentDefinition 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
+    xmlns:smartTable="sap.ui.comp.smarttable" 
+    xmlns:fb="sap.ui.comp.filterbar" 
+    xmlns:u="sap.ui.unified"
+    xmlns:upload="sap.m.upload"
+    xmlns:l="sap.ui.layout">
+	<Dialog title="Tipos de Cambio" contentWidth="50%">
+  	<!-- <l:Grid defaultSpan="L12 M12 S12" width="auto"> -->
+    <!-- <l:content> -->
+      <smartFilterBar:SmartFilterBar id="smartFilterBarTipo" entitySet="TipoCambioSet">
+
+      <smartFilterBar:controlConfiguration>
+               <smartFilterBar:ControlConfiguration key="FROM_DATE" label="Desde" visibleInAdvancedArea="true">
+                 <smartFilterBar:customControl>
+                      <DatePicker id="DPfromDate1" required="true"  change="onChangeFechaDesde" placeholder="Ingresar Fecha"  class="sapUiSmallMarginBottom"/>
+                </smartFilterBar:customControl>
+            </smartFilterBar:ControlConfiguration> 
+       </smartFilterBar:controlConfiguration>   
+             <smartFilterBar:controlConfiguration>
+            <smartFilterBar:ControlConfiguration key="TO_DATE" label="Hasta" visibleInAdvancedArea="true">
+                 <smartFilterBar:customControl>
+                      <DatePicker id="DPtoDate1" required="true" change="onChangeFechaHasta" placeholder="Ingresar Fecha" class="sapUiSmallMarginBottom"/>
+                </smartFilterBar:customControl>
+            </smartFilterBar:ControlConfiguration>
+      </smartFilterBar:controlConfiguration>  
+     </smartFilterBar:SmartFilterBar>
+                      <smartTable:SmartTable 
+                            id="tiposCambio"
+                            persistencyKey="SmartTableAnalytical_Explored" 
+                            entitySet="TipoCambioSet" 
+                            smartFilterId="smartFilterBarTIP" 
+                           
+                            useExportToExcel="false" 
+                            
+                            useVariantManagement="false" 
+                            useTablePersonalisation="false" 
+                            header="Tipos de Cambio" 
+                            showRowCount="true" 
+                            enableAutoBinding="false" 
+                            beforeRebindTable="onBeforeRebindTableCambio"
+                            ignoreFromPersonalisation="TO_DATE"
+                            requestAtLeastFields="FROM_DATE,EXCH_RATE"
+                            initiallyVisibleFields="FROM_DATE,EXCH_RATE"
+                            class="sapUiResponsiveContentPadding">
+                        <Table xmlns="sap.m" id="TablaTipoCambio" noDataText="Drop column list items here and columns in the area above" growing="true" growingThreshold="999999999" sticky="ColumnHeaders">
+                           <columns>
+                              <Column hAlign="Center">
+                                <customData>
+                                    <core:CustomData key="p13nData" value='\{"columnKey": "FROM_DATE", "leadingProperty": "FROM_DATE", "type": "date", "columnIndex": 0}'/>
+                                </customData>
+                                <Label text="Fecha"/>
+                              </Column>
+                                <Column hAlign="Center">
+                                <customData>
+                                    <core:CustomData key="p13nData" value='\{"columnKey": "EXCH_RATE", "leadingProperty": "EXCH_RATE", "columnIndex": 1}'/>
+                                </customData>
+                                <Label text="Tipo de Cambio"/>
+                              </Column>
+                            </columns>
+                          <items>                      
+                          <ColumnListItem>
+                           <!-- <Text text="{path: 'FROM_DATE'}"/>  -->
+                            <Text text="{path: 'FROM_DATE', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd/MM/yyyy', UTC: true }}"/> 
+                            <Text text="{path: 'EXCH_RATE'}"/> 
+                          </ColumnListItem>
+                          </items>
+                        </Table>
+                     </smartTable:SmartTable>
+				<!-- </l:content> -->
+		<!-- </l:Grid> -->
+		<buttons>
+      <Button text="Cerrar" press="handleClose"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
