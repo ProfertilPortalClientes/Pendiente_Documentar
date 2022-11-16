@@ -5,7 +5,7 @@ modules:
 - name: pendienteDocumentar-destination-content
   type: com.sap.application.content
   requires:
-  - name: pendienteDocumentar-destination-service
+  - name: pendienteDocumentar_destination_services
     parameters:
       content-target: true
   - name: pendienteDocumentar-repo-host
@@ -16,12 +16,15 @@ modules:
     parameters:
       service-key:
         name: pendienteDocumentar-uaa-key
+  # - name: SDM-QAS
+  #   properties: 
+  #     destinations: "[{\"name\": \"sdibackend\", \"url\": \"https://api-sdm-di.cfapps.eu10.hana.ondemand.com/\", \"forwardAuthToken\": true}]"
   parameters:
     content:
       instance:
         destinations:
         - Name: pendienteDocumentar_html_repo_host
-          ServiceInstanceName: pendienteDocumentar-html5-srv
+          ServiceInstanceName: pendienteDocumentar_html5_repo_host
           ServiceKeyName: pendienteDocumentar-repo-host-key
           sap.cloud.service: pendienteDocumentar
         - Authentication: OAuth2UserTokenExchange
@@ -46,10 +49,6 @@ modules:
       - profertilpendienteDocumentar.zip
       name: profertilpendienteDocumentar
       target-path: resources/
-    - artifacts:
-      - pedidoscargaplugin.zip
-      name: pedidoscargaplugin
-      target-path: resources/
 - name: profertilpendienteDocumentar
   type: html5
   path: .
@@ -60,18 +59,8 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
-- name: pedidoscargaplugin
-  type: html5
-  path: pedidoscarga-plugin
-  build-parameters:
-    build-result: dist
-    builder: custom
-    commands:
-    - npm install
-    - npm run build:cf
-    supported-platforms: []
 resources:
-- name: pendienteDocumentar-destination-service
+- name: pendienteDocumentar_destination_services
   type: org.cloudfoundry.managed-service
   parameters:
     config:
@@ -87,7 +76,7 @@ resources:
           existing_destinations_policy: update
       version: 1.0.0
     service: destination
-    service-name: pendienteDocumentar-destination-service
+    service-name: pendienteDocumentar_destination_services
     service-plan: lite
 - name: pendienteDocumentar-uaa
   type: org.cloudfoundry.managed-service
@@ -100,8 +89,13 @@ resources:
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
-    service-name: pendienteDocumentar-html5-srv
+    service-name: pendienteDocumentar_html5_repo_host
     service-plan: app-host
+# - name: SDM-QAS
+#   type: org.cloudfoundry.managed-service
+#   parameters:
+#     service: sdm
+#     service-plan: standard
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true

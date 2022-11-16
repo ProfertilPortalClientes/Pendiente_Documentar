@@ -172,45 +172,51 @@
                               </customData>
                               <Label text="{/#negSinFacturar/KondmTxt/@sap:label}"/>
                               </Column>
+                              <!-- <Column hAlign="Center">
+                              <customData>
+                                  <core:CustomData key="p13nData" value='\{"columnKey": "Composicion", "leadingProperty": "Composicion", "sortProperty": "Composicion", "filterProperty": "Composicion" , "columnIndex": 4}'/>
+                              </customData>
+                              <Label text="{i18n>composicion}"/>
+                              </Column> -->
                               <Column hAlign="Center">
                               <customData>
-                                  <core:CustomData key="p13nData" value='\{"columnKey": "Netpr", "leadingProperty": "Netpr", "sortProperty": "Netpr", "filterProperty": "Netpr" , "columnIndex": 4}'/>
+                                  <core:CustomData key="p13nData" value='\{"columnKey": "Netpr", "leadingProperty": "Netpr", "sortProperty": "Netpr", "filterProperty": "Netpr" , "columnIndex": 5}'/>
                               </customData>
                               <Label text="{/#negSinFacturar/Netpr/@sap:label}"/>
                               </Column>
                               <Column hAlign="Center">
                               <customData>
-                                  <core:CustomData key="p13nData" value='\{"columnKey": "BstdkE", "leadingProperty": "BstdkE", "sortProperty": "BstdkE", "filterProperty": "BstdkE" , "columnIndex": 5}'/>
+                                  <core:CustomData key="p13nData" value='\{"columnKey": "BstdkE", "leadingProperty": "BstdkE", "sortProperty": "BstdkE", "filterProperty": "BstdkE" , "columnIndex": 6}'/>
                               </customData>
                               <Label text="{/#negSinFacturar/BstdkE/@sap:label}"/>
                               </Column>
                               <Column hAlign="Center">
                               <customData>
-                                  <core:CustomData key="p13nData" value='\{"columnKey": "Werks", "leadingProperty": "Werks", "sortProperty": "Werks", "filterProperty": "Werks" , "columnIndex": 6}'/>
+                                  <core:CustomData key="p13nData" value='\{"columnKey": "Werks", "leadingProperty": "Werks", "sortProperty": "Werks", "filterProperty": "Werks" , "columnIndex": 7}'/>
                               </customData>
                               <Label text="{/#negSinFacturar/Werks/@sap:label}"/>
                               </Column>
                               <Column hAlign="Center">
                               <customData>
-                                  <core:CustomData key="p13nData" value='\{"columnKey": "TotAcuerdo", "leadingProperty": "TotAcuerdo", "sortProperty": "TotAcuerdo", "filterProperty": "TotAcuerdo" , "columnIndex": 7}'/>
+                                  <core:CustomData key="p13nData" value='\{"columnKey": "TotAcuerdo", "leadingProperty": "TotAcuerdo", "sortProperty": "TotAcuerdo", "filterProperty": "TotAcuerdo" , "columnIndex": 8}'/>
                               </customData>
                               <Label text="{/#negSinFacturar/TotAcuerdo/@sap:label}"/>
                               </Column>
                               <Column hAlign="Center">
                               <customData>
-                                  <core:CustomData key="p13nData" value='\{"columnKey": "NoEntreNoFac", "leadingProperty": "NoEntreNoFac", "sortProperty": "NoEntreNoFac", "filterProperty": "NoEntreNoFac" , "columnIndex": 8}'/>
+                                  <core:CustomData key="p13nData" value='\{"columnKey": "NoEntreNoFac", "leadingProperty": "NoEntreNoFac", "sortProperty": "NoEntreNoFac", "filterProperty": "NoEntreNoFac" , "columnIndex": 9}'/>
                               </customData>
                               <Label text="{/#negSinFacturar/NoEntreNoFac/@sap:label}"/>
                               </Column>
-                              <Column hAlign="Center" visible="true">
+                              <Column hAlign="Center" visible="{= ${pendienteDocView>/isAdmin} ? true : false}">
                                   <customData>
-                                      <core:CustomData key="p13nData" value='\{"columnKey": "Kunnr", "leadingProperty": "Kunnr", "sortProperty": "Kunnr", "filterProperty": "Kunnr" , "columnIndex": 9}'/>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "Kunnr", "leadingProperty": "Kunnr", "sortProperty": "Kunnr", "filterProperty": "Kunnr" , "columnIndex": 10}'/>
                                   </customData>
                                   <Label text="{/#negSinFacturar/Kunnr/@sap:label}"/>
                               </Column>
                               <Column hAlign="Center" visible="{= ${pendienteDocView>/isAdmin} ? true : false}">
                                   <customData>
-                                      <core:CustomData key="p13nData" value='\{"columnKey": "BzirkTxt", "leadingProperty": "BzirkTxt", "sortProperty": "BzirkTxt", "filterProperty": "BzirkTxt" , "columnIndex": 10}'/>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "BzirkTxt", "leadingProperty": "BzirkTxt", "sortProperty": "BzirkTxt", "filterProperty": "BzirkTxt" , "columnIndex": 11}'/>
                                   </customData>
                                   <Label text="{/#negSinFacturar/BzirkTxt/@sap:label}"/>
                               </Column>
@@ -233,6 +239,7 @@
                                     <ObjectIdentifier title="{Vbeln}"/>
                                     <ObjectAttribute text="{Arktx}"/>
                                     <ObjectAttribute text="{KondmTxt}"/>
+                                    <!-- <ObjectAttribute text="{Composicion}"/> -->
                                     <ObjectNumber number="{Netpr}"/>
                                     <ObjectAttribute text="{path: 'BstdkE', formatter: '.formatter.formatDate'}"/>
                                     <ObjectAttribute text="{Werks}"/>
@@ -370,51 +377,57 @@
                                     </customData>
                                     <Label text="{/#kbSinFacturar/producto/@sap:label}"/>
                                     </Column>
+                                    <!-- <Column hAlign="Center">
+                                    <customData>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "Composicion", "leadingProperty": "Composicion", "sortProperty": "Composicion", "filterProperty": "Composicion" , "columnIndex": 4}'/>
+                                    </customData>
+                                    <Label text="{i18n>composicion}" />
+                                    </Column> -->
                                     <Column hAlign="Center">
                                     <customData>
-                                      <core:CustomData key="p13nData" value='\{"columnKey": "precio", "leadingProperty": "precio", "sortProperty": "precio", "filterProperty": "precio" , "columnIndex": 4}'/>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "precio", "leadingProperty": "precio", "sortProperty": "precio", "filterProperty": "precio" , "columnIndex": 5}'/>
                                     </customData>
                                     <Label text="{/#kbSinFacturar/precio/@sap:label}"/>
                                     </Column>
                                     <Column hAlign="Center">
                                     <customData>
-                                      <core:CustomData key="p13nData" value='\{"columnKey": "vencpago", "leadingProperty": "vencpago", "sortProperty": "vencpago", "filterProperty": "vencpago" , "columnIndex": 5}'/>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "vencpago", "leadingProperty": "vencpago", "sortProperty": "vencpago", "filterProperty": "vencpago" , "columnIndex": 6}'/>
                                     </customData>
                                     <Label text="{/#kbSinFacturar/vencpago/@sap:label}"/>
                                     </Column>
                                     <Column  hAlign="Center" width="8%">
                                     <customData>
-                                      <core:CustomData key="p13nData" value='\{"columnKey": "centro", "leadingProperty": "centro", "sortProperty": "centro", "filterProperty": "centro" , "columnIndex": 6}'/>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "centro", "leadingProperty": "centro", "sortProperty": "centro", "filterProperty": "centro" , "columnIndex": 7}'/>
                                     </customData>
                                     <Label text="{/#kbSinFacturar/centro/@sap:label}"/>
                                     </Column>
                                     <Column hAlign="Center">
                                     <customData>
-                                      <core:CustomData key="p13nData" value='\{"columnKey": "remito", "leadingProperty": "remito", "sortProperty": "remito", "filterProperty": "remito" , "columnIndex": 7}'/>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "remito", "leadingProperty": "remito", "sortProperty": "remito", "filterProperty": "remito" , "columnIndex": 8}'/>
                                     </customData>
                                     <Label text="{/#kbSinFacturar/remito/@sap:label}"/>
                                     </Column>
                                     <Column hAlign="Center" width="10%">
                                     <customData>
-                                      <core:CustomData key="p13nData" value='\{"columnKey": "tnpend", "leadingProperty": "tnpend", "sortProperty": "tnpend", "filterProperty": "tnpend" , "columnIndex": 8}'/>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "tnpend", "leadingProperty": "tnpend", "sortProperty": "tnpend", "filterProperty": "tnpend" , "columnIndex": 9}'/>
                                     </customData>
                                     <Label text="{/#kbSinFacturar/tnpend/@sap:label}" tooltip="{/#kbSinFacturar/tnpend/@sap:label}"/>
                                     </Column>
                                     <Column  hAlign="Center" width="14%">
                                     <customData>
-                                      <core:CustomData key="p13nData" value='\{"columnKey": "plbstkd", "leadingProperty": "plbstkd", "sortProperty": "plbstkd", "filterProperty": "plbstkd" , "columnIndex": 9}'/>
+                                      <core:CustomData key="p13nData" value='\{"columnKey": "plbstkd", "leadingProperty": "plbstkd", "sortProperty": "plbstkd", "filterProperty": "plbstkd" , "columnIndex": 10}'/>
                                     </customData>
                                     <Label text="{/#kbSinFacturar/plbstkd/@sap:label}"/>
                                     </Column>     
                                     <Column hAlign="Center" visible="{= ${pendienteDocView>/isAdmin} ? true : false}">
                                         <customData>
-                                            <core:CustomData key="p13nData" value='\{"columnKey": "kunnr", "leadingProperty": "kunnr", "sortProperty": "kunnr", "filterProperty": "kunnr" , "columnIndex": 10}'/>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "kunnr", "leadingProperty": "kunnr", "sortProperty": "kunnr", "filterProperty": "kunnr" , "columnIndex": 11}'/>
                                         </customData>
                                         <Label text="{/#kbSinFacturar/kunnr/@sap:label}"/>
                                     </Column>
                                     <Column hAlign="Center" width="14%" visible="{= ${pendienteDocView>/isAdmin} ? true : false}">
                                         <customData>
-                                            <core:CustomData key="p13nData" value='\{"columnKey": "BzirkTxt", "leadingProperty": "BzirkTxt", "sortProperty": "BzirkTxt", "filterProperty": "BzirkTxt" , "columnIndex": 11}'/>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "BzirkTxt", "leadingProperty": "BzirkTxt", "sortProperty": "BzirkTxt", "filterProperty": "BzirkTxt" , "columnIndex": 12}'/>
                                         </customData>
                                         <Label text="{/#kbSinFacturar/BzirkTxt/@sap:label}"/>
                                     </Column>
@@ -426,7 +439,7 @@
                                     </Column> -->
                                     <Column  hAlign="Center" width="14%">
                                       <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "CantLiq", "leadingProperty": "CantLiq", "sortProperty": "CantLiq", "filterProperty": "CantLiq" , "columnIndex": 12}'/>
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "CantLiq", "leadingProperty": "CantLiq", "sortProperty": "CantLiq", "filterProperty": "CantLiq" , "columnIndex": 13}'/>
                                       </customData>
                                     <Label text="{/#kbSinFacturar/CantLiq/@sap:label}"/>
                                     </Column>
@@ -438,6 +451,7 @@
                                     <ObjectAttribute text="{material}"/>
                                     <ObjectAttribute text="{MatnrTXT}"/>
                                     <ObjectAttribute text="{producto}"/>
+                                    <!-- <ObjectAttribute text="{Composicion}"/> -->
                                     <ObjectNumber number="{precio}"/>
                                     <ObjectAttribute text="{path: 'vencpago', formatter: '.formatter.formatDate'}"/>
                                     <ObjectAttribute text="{centro}"/>

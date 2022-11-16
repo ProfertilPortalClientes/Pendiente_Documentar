@@ -28,6 +28,12 @@
       "destination": "ui5"
     },
     {
+      "authenticationType": "none",
+      "source": "^/SDM_API/(.*)$",
+      "target": "/$1",
+      "destination": "SDM_API"
+    },
+    {
       "source": "^(.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",

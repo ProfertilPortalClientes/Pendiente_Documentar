@@ -17,7 +17,7 @@
                         "additionalParameters": "allowed"
                     },
                     "semanticObject": "penddocum",
-                    "action": "admin",
+                    "action": "display",
                     "title": "Pendiente de Documentar",
                     "icon": "sap-icon://my-sales-order"
                 }
@@ -55,6 +55,19 @@
         }
     },
     "sap.ui5": {
+        "componentUsages": {
+            "documentTable": {
+                "name": "com.sap.ecm.reuse.documentTable",
+                "settings": {
+                    "destinationPath": "/comsapecmreuse.comsapecmreusedocumentTable/api",
+                    "repositoryId": "bef1a0cc-0451-408e-9b21-07ea0e01bf78",
+                    "objectId": " "
+                }
+            }
+        },
+        "resourceRoots": {
+            "com.sap.ecm.reuse.documentTable": "./../comsapecmreuse.comsapecmreusedocumentTable/"
+        },
         "flexEnabled": false,
         "rootView": {
             "viewName": "profertil.pendienteDocumentar.view.MainView",
